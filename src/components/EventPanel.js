@@ -13,11 +13,18 @@ const MAIN_TEMPLATE = [
 			method: "get",
 			url: "https://cat-fact.herokuapp.com/facts/random?animal_type=cat&amount=2",
 		}
+	},
+	{
+		id:"FIRST_CAT",
+		req: {
+			method: "get",
+			url:"https://cat-fact.herokuapp.com/facts/{{responses.CAT_FACTS.0._id}}"
+		}
 	}
 ]
 
 
-const eventWithContext = (event, context) => {
+const reqWithContext = (req, context) => {
 
 	console.log('context', context)
 
@@ -32,18 +39,22 @@ const eventWithContext = (event, context) => {
 
 
 	const valueWithContext = (value, context) => {
-		return value.replace(/{{(.*?)}}/g, function (match, context_path) {
+		
+		const value_result = value.replace(/{{(.*?)}}/g, function (match, context_path) {
+			console.log(`valueWithContext: match`, {match, context_path, context})
 			return getObjectVal(context_path, context)
 		})
+		console.log(`valueWithContext`, {value, value_result})
+		return value_result
 	}
 
-	const _event = { ...event }
-	Object.keys(_event.payload)
+	const _req = { ...req }
+	Object.keys(_req)
 		.forEach((key) => {
-			const value = _event.payload[key];
-			_event.payload[key] = valueWithContext(value, context);
+			const value = _req[key];
+			_req[key] = valueWithContext(value, context);
 		})
-	return _event;
+	return _req;
 
 
 }
@@ -82,7 +93,7 @@ class EventPanel extends React.Component {
 					const newEvent = JSON.parse(JSON.stringify(event))
 					console.log(`newEvent cane: `, newEvent)
 
-					// newEvent.req = eventWithContext(newEvent.req, context)
+					newEvent.req = reqWithContext(newEvent.req, context)
 
 					this.addHistoryEventRequest(event, newEvent)
 

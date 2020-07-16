@@ -5,6 +5,7 @@ import AceEditor from "react-ace";
 
 import "ace-builds/src-noconflict/mode-json";
 import "ace-builds/src-noconflict/theme-github";
+import reqWithContext from  '../reqWithContext';
 
 const MAIN_TEMPLATE = [
 	{
@@ -24,40 +25,6 @@ const MAIN_TEMPLATE = [
 ]
 
 
-const reqWithContext = (req, context) => {
-
-	console.log('context', context)
-
-	function getObjectVal(objPath, obj) {
-		return objPath.split('.')
-			.reduce(function (object, property) {
-				if (!object)
-					return undefined;
-				return object[property];
-			}, obj);
-	}
-
-
-	const valueWithContext = (value, context) => {
-		
-		const value_result = value.replace(/{{(.*?)}}/g, function (match, context_path) {
-			console.log(`valueWithContext: match`, {match, context_path, context})
-			return getObjectVal(context_path, context)
-		})
-		console.log(`valueWithContext`, {value, value_result})
-		return value_result
-	}
-
-	const _req = { ...req }
-	Object.keys(_req)
-		.forEach((key) => {
-			const value = _req[key];
-			_req[key] = valueWithContext(value, context);
-		})
-	return _req;
-
-
-}
 
 class EventPanel extends React.Component {
 	constructor(props) {

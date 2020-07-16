@@ -22,6 +22,21 @@
   color: white;
 }
 
+.App-content {
+  padding: 10px;
+}
+.App-intro {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.App-intro i {
+  color: #dd3561;
+  background-color: #f4f4f4;
+  border:1px solid  #d1d1d1;
+  border-radius: 5px;
+  padding: 1px 3px;
+}
+
 .App-link {
   color: #61dafb;
 }

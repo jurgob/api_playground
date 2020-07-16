@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/api_playground/static/css/main.5f361e03.chunk.css",
+    "main.js": "/api_playground/static/js/main.3a276bbb.chunk.js",
+    "main.js.map": "/api_playground/static/js/main.3a276bbb.chunk.js.map",
+    "runtime-main.js": "/api_playground/static/js/runtime-main.6cee8249.js",
+    "runtime-main.js.map": "/api_playground/static/js/runtime-main.6cee8249.js.map",
+    "static/js/2.2b451e66.chunk.js": "/api_playground/static/js/2.2b451e66.chunk.js",
+    "static/js/2.2b451e66.chunk.js.map": "/api_playground/static/js/2.2b451e66.chunk.js.map",
+    "index.html": "/api_playground/index.html",
+    "precache-manifest.51b45ae7d24ab27aa1f46a13c453c23d.js": "/api_playground/precache-manifest.51b45ae7d24ab27aa1f46a13c453c23d.js",
+    "service-worker.js": "/api_playground/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/api_playground/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.2b451e66.chunk.js.LICENSE.txt": "/api_playground/static/js/2.2b451e66.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/api_playground/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6cee8249.js",
+    "static/js/2.2b451e66.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.3a276bbb.chunk.js"
+  ]
+}
